@@ -4,12 +4,12 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
-  padding: 20px 30px;
+  width: 400px;
+  padding: 25px;
   padding-bottom: 25px;
   border-radius: 5px;
   margin-bottom: 35px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 7px 14px 0px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   background-color: white;
 `;
@@ -17,6 +17,8 @@ export const Title = styled.h2`
   font-size: 30px;
   font-weight: 600;
   text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 10px;
 `;
 
 
@@ -38,9 +40,11 @@ export const Input = styled.input`
 `;
 
 export const AddButton = styled.button`
-  display: block;
-  width: 40%;
-  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px;
   cursor: pointer;
   margin-top: 15px;
   color: rgb(255, 255, 255);
@@ -48,14 +52,12 @@ export const AddButton = styled.button`
   font-family: Lato, sans-serif;
   font-weight: 500;
   font-size: 16px;
-  cursor: pointer;
   transition: all 0.3s ease 0s;
-  display: inline-block;
   box-shadow: rgba(255, 255, 255, 0.5) 2px 2px 2px 0px inset,
     rgba(0, 0, 0, 0.1) 7px 7px 20px 0px, rgba(0, 0, 0, 0.1) 4px 4px 5px 0px;
   outline: none;
   position: relative;
-  background: #0099FF;
+  background: #0fc1dd;
   border: none;
   z-index: 1;
 
@@ -74,7 +76,15 @@ export const AddButton = styled.button`
     transition: all 0.3s ease;
   }
   &:hover {
-    color: #000;
-    background: green;
+    color: #fff;
+  }
+
+  &:hover:after {
+    left: 0;
+    width: 100%;
+  }
+  > span {
+    margin-right: 10px;
+    font-size: 18px;
   }
 `;

@@ -3,8 +3,8 @@ import Notiflix from 'notiflix';
 import {
   addContact,
   deleteContact,
+  editContact,
   fetchContacts,
-  toggleIsFavourite,
 } from './operation';
 
 const handlePending = state => {
@@ -13,6 +13,7 @@ const handlePending = state => {
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
+
   state.error = action.payload;
 };
 
@@ -24,7 +25,6 @@ export const contactsSlice = createSlice({
     isLoading: false,
     sortedAlphabetic: true,
     recentlyAdded: true,
-    favIsShown: false,
   },
   reducers: {
     sortByName(state) {
@@ -38,13 +38,10 @@ export const contactsSlice = createSlice({
     sortByAdded(state) {
       state.contacts = state.contacts.sort((firstContact, secondContact) =>
         state.recentlyAdded
-          ? secondContact.id - firstContact.id
-          : firstContact.id - secondContact.id
+          ? firstContact.id.localeCompare(secondContact.id)
+          : secondContact.id.localeCompare(firstContact.id)
       );
       state.recentlyAdded = !state.recentlyAdded;
-    },
-    toggleShowFavourites(state) {
-      state.favIsShown = !state.favIsShown;
     },
   },
 
@@ -52,12 +49,14 @@ export const contactsSlice = createSlice({
     [fetchContacts.pending]: handlePending,
     [addContact.pending]: handlePending,
     [deleteContact.pending]: handlePending,
-    [toggleIsFavourite]: handlePending,
+    [editContact.pending](state, action) {
+      state.isLoading = true;
+      state.shouldOpenModal = true;
+    },
 
     [fetchContacts.rejected]: handleRejected,
     [addContact.rejected]: handleRejected,
     [deleteContact.rejected]: handleRejected,
-    [toggleIsFavourite]: handleRejected,
 
     [fetchContacts.fulfilled](state, action) {
       state.isLoading = false;
@@ -79,16 +78,17 @@ export const contactsSlice = createSlice({
       state.error = null;
       state.contacts = state.contacts.filter(
         contact => contact.id !== action.payload.id
-      );
+		);
+		 Notiflix.Notify.success(
+       `${action.payload.name} has been successfully deleted from your phonebook`
+     );
     },
-    [toggleIsFavourite.fulfilled](state, action) {
+    [editContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      console.log(action.payload.id);
       const index = state.contacts.findIndex(
         contact => contact.id === action.payload.id
       );
-
       state.contacts[index] = action.payload;
     },
   },

@@ -1,13 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://64ae8589c85640541d4d3920.mockapi.io/api/v1';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/contacts');
+		 const response = await axios.get('/contacts');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -18,10 +19,11 @@ export const fetchContacts = createAsyncThunk(
 export const addContact = createAsyncThunk(
   'contacts/addContacts',
   async (contact, thunkAPI) => {
-    try {
+	  try {
       const response = await axios.post('/contacts', contact);
       return response.data;
-    } catch (error) {
+	  } catch (error) {
+		  console.log(error)
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -30,7 +32,8 @@ export const addContact = createAsyncThunk(
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contactId, thunkAPI) => {
-    try {
+	  try {
+		 
       const response = await axios.delete(`/contacts/${contactId}`);
       return response.data;
     } catch (error) {
@@ -39,17 +42,17 @@ export const deleteContact = createAsyncThunk(
   }
 );
 
-export const toggleIsFavourite = createAsyncThunk(
-  'contacts/toggleIsFavourite',
-  async ({id, isFavourite}, thunkAPI) => {
+export const editContact = createAsyncThunk(
+  'contacts/editContact',
+  async (contact, thunkAPI) => {
 	  try {
-      const response = await axios.put(`/contacts/${id}`, {
-        isFavourite: !isFavourite,
-      });
-		console.log(response.data)
-		  return response.data;
+		  const { id, name, number } = contact;
+		 const response = await axios.patch(`/contacts/${id}`, {name, number});
+      return response.data;
     } catch (error) {
+      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+

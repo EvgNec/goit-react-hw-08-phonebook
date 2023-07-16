@@ -1,14 +1,13 @@
-import { FilterInput, Label } from './Filter.styled';
 import { useDispatch } from 'react-redux';
-import { setFilter } from 'redux/filterSlice';
-
+import { setFilter } from 'redux/contacts/filterSlice';
+import { FilterInput, Label } from './Filter.styled';
 
 const Filter = () => {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	const handleChange = ({ target }) => {
-	dispatch(setFilter(target.value))
-}
+  const handleChange = ({ target }) => {
+    dispatch(setFilter(target.value));
+  };
   return (
     <Label>
       Find contacts by name
