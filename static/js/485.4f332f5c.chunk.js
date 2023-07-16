@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoit_react_hw_08_phonebook=self.webpackChunkgoit_react_hw_08_phonebook||[]).push([[485],{3485:function(e,n,t){t.r(n),t.d(n,{default:function(){return c}});var o,r=t(168),i=t(5706).Z.p(o||(o=(0,r.Z)(["\n  font-size: 20px;\n  font-weight: 600;\n"]))),s=t(184),c=function(){return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)("h1",{children:"Welcome to AdressBook! "}),(0,s.jsx)(i,{children:"You need to register to use this application."})]})}}}]);
+//# sourceMappingURL=485.4f332f5c.chunk.js.map
