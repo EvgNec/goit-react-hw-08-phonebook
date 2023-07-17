@@ -11,7 +11,7 @@ const Layout = () => {
       <Suspense
         fallback={
           <LoaderStyled>
-            <Loader color={'#0fc1dd'} size={'100'} />
+            <Loader color={'#0099FF'} size={'100'} />
           </LoaderStyled>
         }
       >

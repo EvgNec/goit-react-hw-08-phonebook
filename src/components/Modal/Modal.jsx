@@ -1,8 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { editContact } from 'redux/contacts/operation';
-import { RiContactsLine } from 'react-icons/ri';
-import { selectIsLoading } from 'redux/contacts/selectors';
-import  Loader  from '../Loader/Loader';
 import {
   BtnClose,
   ModalWindow,
@@ -16,7 +13,6 @@ import {
 const Modal = ({ contactInfo, toggleOpen }) => {
   const { name, number, id } = contactInfo;
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -52,8 +48,7 @@ const Modal = ({ contactInfo, toggleOpen }) => {
             defaultValue={number}
           />
           <AddButton type="submit">
-            <span>Edit contacts </span>{' '}
-            {isLoading ? <Loader /> : <RiContactsLine size="20" />}
+            <span>Edit contacts</span>
           </AddButton>
         </Form>
       </ModalWindow>

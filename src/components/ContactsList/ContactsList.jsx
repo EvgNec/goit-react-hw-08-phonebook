@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { RiDeleteBin2Line, RiEditLine } from 'react-icons/ri';
 import { deleteContact } from 'redux/contacts/operation';
 import {
   List,
@@ -14,9 +13,6 @@ import Modal from '../Modal/Modal';
 import SortedBtns from '../SortedBtns/SortedBtns';
 import Loader from '../Loader/Loader';
 import { useContacts } from 'hooks/useContact';
-
-
-
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -34,7 +30,7 @@ const ContactList = () => {
     toggleOpen();
   };
 
-	const handleDelete = id => {
+  const handleDelete = id => {
     Confirm.show(
       'Deleting contact',
       'Do you wanst delete this contact?',
@@ -42,7 +38,7 @@ const ContactList = () => {
       'No',
       () => {
         dispatch(deleteContact(id));
-      },
+      }
     );
   };
 
@@ -62,14 +58,10 @@ const ContactList = () => {
                 {name}: {number}
                 <BtnWrapper>
                   <Btn type="button" onClick={handleClick}>
-                    <RiEditLine size="20" />
+                    Edit
                   </Btn>
-                  <Btn delete type="button" onClick={ () => handleDelete(id)}>
-                    {isLoading ? (
-                      <Loader color={'#ffffff'} size={'20'} />
-                    ) : (
-                      <RiDeleteBin2Line size="20" />
-                    )}
+                  <Btn delete type="button" onClick={() => handleDelete(id)}>
+                    Delete
                   </Btn>
                 </BtnWrapper>
                 {isModalOpen && (

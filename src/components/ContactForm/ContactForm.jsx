@@ -1,15 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { Input, AddButton, Form, Title } from './ContactForm.styled';
-import { RiContactsLine } from 'react-icons/ri';
 import Notiflix from 'notiflix';
-import  Loader  from '../Loader/Loader';
 import { addContact } from 'redux/contacts/operation';
 import { useContacts } from 'hooks/useContact';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-	const { contacts } = useContacts();
-  const {isLoading} = useContacts();
+  const { contacts } = useContacts();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -30,7 +27,7 @@ const ContactForm = () => {
         <Input
           type="text"
           name="name"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          title="Name may contain only letters, apostrophe, dash and spaces."
           required
           placeholder="Name"
         />
@@ -43,11 +40,6 @@ const ContactForm = () => {
         />
         <AddButton type="submit">
           <span>Add contacts </span>
-          {isLoading ? (
-            <Loader color={'#ffffff'} size={'20'} />
-          ) : (
-            <RiContactsLine size="20" />
-          )}
         </AddButton>
       </Form>
     </>

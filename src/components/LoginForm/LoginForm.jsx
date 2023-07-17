@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import { FiLogIn } from 'react-icons/fi';
 import { Button, Form, Input } from './LoginForm.styled';
 
 const LoginForm = () => {
@@ -20,7 +19,7 @@ const LoginForm = () => {
       <Input type="email" name="email" placeholder="Email" />
       <Input type="password" name="password" placeholder="Password" />
       <Button type="submit">
-        <span>Log In</span> <FiLogIn size="20" />
+        <span>Log In</span>
       </Button>
     </Form>
   );

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const LoaderStyled = styled.span`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 export const List = styled.ul`
@@ -15,17 +15,17 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
   display: flex;
-  flex-direction: row;
+
   align-items: center;
   justify-content: space-between;
-  border-bottom: 5px groove #73dbeb;
+  border-bottom: 5px groove #0099FF;
   padding: 10px 0;
 `;
 
 export const Btn = styled.button`
-  width: 32px;
+    width: 100%;
   height: 32px;
-  margin-left: 10px;
+  margin-left: 5px;
   color: rgb(255, 255, 255);
   border-radius: 5px;
   font-family: Lato, sans-serif;
@@ -38,7 +38,7 @@ export const Btn = styled.button`
   justify-content: center;
   outline: none;
   position: relative;
-  background: ${proprs => (proprs.delete ? '#e55146' : '#009688')};
+  background: ${proprs => (proprs.delete ? 'red' : '#0099FF')};
   border: none;
   z-index: 1;
   box-shadow: rgba(255, 255, 255, 0.5) 2px 2px 2px 0px inset,
@@ -72,5 +72,5 @@ export const BtnWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: 10px;
+  gap: 5px;
 `;

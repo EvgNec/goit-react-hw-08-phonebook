@@ -6,7 +6,9 @@ export const UserMenuWrapper = styled.div`
 `;
 
 export const UserName = styled.p`
+display: flex;
   font-weight: 700;
+  font-size:18px;
 `;
 
 export const Button = styled.button`
@@ -14,7 +16,7 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   gap:8px;
-  width: 100%;
+  width: 80%;
   padding: 8px;
   cursor: pointer;
   color: rgb(255, 255, 255);
@@ -27,7 +29,7 @@ export const Button = styled.button`
     rgba(0, 0, 0, 0.1) 7px 7px 20px 0px, rgba(0, 0, 0, 0.1) 4px 4px 5px 0px;
   outline: none;
   position: relative;
-  background: #0fc1dd;
+  background: #0099FF;
   border: none;
   z-index: 1;
 

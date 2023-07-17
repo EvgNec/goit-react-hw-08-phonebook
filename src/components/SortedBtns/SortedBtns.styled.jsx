@@ -16,7 +16,7 @@ export const SortBtn = styled.button`
   justify-content: center;
   outline: none;
   position: relative;
-  background: #0fc1dd;
+  background: #0099FF;
   border: none;
   z-index: 1;
   box-shadow: rgba(255, 255, 255, 0.5) 2px 2px 2px 0px inset,

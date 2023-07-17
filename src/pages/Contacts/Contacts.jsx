@@ -26,7 +26,7 @@ const Contacts = () => {
           {contacts.length > 0 ? (
             <ContactsList />
           ) : (
-            <Message>Add your first contact</Message>
+            <Message>Phonebook is empty. Add new record.</Message>
           )}
         </ContactsWrapper>
       </div>

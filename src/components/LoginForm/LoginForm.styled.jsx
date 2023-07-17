@@ -32,12 +32,9 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap:8px;
-  width: 100%;
-  padding: 8px;
+  display: block;
+  width: 40%;
+  height: 40px;
   cursor: pointer;
   margin-top: 15px;
   color: rgb(255, 255, 255);
@@ -45,12 +42,14 @@ export const Button = styled.button`
   font-family: Lato, sans-serif;
   font-weight: 500;
   font-size: 16px;
+  cursor: pointer;
   transition: all 0.3s ease 0s;
+  display: inline-block;
   box-shadow: rgba(255, 255, 255, 0.5) 2px 2px 2px 0px inset,
     rgba(0, 0, 0, 0.1) 7px 7px 20px 0px, rgba(0, 0, 0, 0.1) 4px 4px 5px 0px;
   outline: none;
   position: relative;
-  background: #0fc1dd;
+  background: #0099FF;
   border: none;
   z-index: 1;
 
@@ -67,17 +66,9 @@ export const Button = styled.button`
     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
       7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    font-size: 18px;
   }
   &:hover {
-    color: #fff;
-  }
-
-  &:hover:after {
-    left: 0;
-    width: 100%;
-  }
-  > span {
-    font-size: 18px;
+    color: #000;
+    background: green;
   }
 `;

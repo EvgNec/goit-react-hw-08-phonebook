@@ -43,7 +43,7 @@ export const AddButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 60%;
   padding: 8px;
   cursor: pointer;
   margin-top: 15px;
@@ -57,7 +57,7 @@ export const AddButton = styled.button`
     rgba(0, 0, 0, 0.1) 7px 7px 20px 0px, rgba(0, 0, 0, 0.1) 4px 4px 5px 0px;
   outline: none;
   position: relative;
-  background: #0fc1dd;
+  background: #0099FF;
   border: none;
   z-index: 1;
 
